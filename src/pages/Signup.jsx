@@ -5,7 +5,7 @@ function Signup() {
     <section className="bg-[#081C17] pb-20">
       <section className="h-72 bg-[url('src/assets/images/about-img.png')] bg-right bg-cover bg-no-repeat flex flex-col justify-center font-bold">
         <div className="w-9/12 mx-auto">
-          <h1 className="font-main text-6xl text-white">Login In</h1>
+          <h1 className="font-main text-6xl text-white">Create Account</h1>
         </div>
       </section>
 

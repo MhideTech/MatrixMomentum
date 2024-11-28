@@ -36,7 +36,7 @@ function PricingPlan({ plan }) {
 
       <div className="items-end">
 
-      <Button variant="pricing">Invest Now</Button>
+      <Button variant="pricing" to="signup">Invest Now</Button>
       </div>
     </article>
   );

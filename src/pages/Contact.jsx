@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 function Contact() {

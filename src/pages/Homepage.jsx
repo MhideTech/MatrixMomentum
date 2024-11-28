@@ -32,7 +32,7 @@ function Homepage() {
               in no time
             </p>
             <div className="flex gap-4 mt-5">
-              <Button variant="primary">Create Account</Button>
+              <Button variant="primary" to="/signup">Create Account</Button>
               <Button variant="secondary" to="/login">
                 Login
               </Button>
