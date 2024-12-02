@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import PricingPlans from "../components/PricingPlans";
 import Services from "../components/Services";
 
-function Homepage() {
+function Homepage({pricingPlan}) {
   return (
     <div>
       <Navbar />
@@ -95,7 +95,7 @@ function Homepage() {
 
       <Services />
 
-      <PricingPlans />
+      <PricingPlans pricingPlan={pricingPlan} />
 
       <section className="w-9/12 mx-auto my-20">
         <h2 className="text-center text-white text-4xl capitalize font-main font-semibold mb-10">

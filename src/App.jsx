@@ -12,10 +12,55 @@ import MakeDeposit from "./pages/MakeDeposit";
 import Deposits from "./pages/Deposits";
 
 function App() {
+  const pricingPlan = [
+    {
+      name: "Beginners",
+      percentage: 5,
+      duration: 20,
+      minInvestment: 100,
+      maxInvestment: 999,
+    },
+    {
+      name: "Star",
+      percentage: 10,
+      duration: 24,
+      minInvestment: 1000,
+      maxInvestment: 4999,
+    },
+    {
+      name: "Advance",
+      percentage: 12,
+      duration: 24,
+      minInvestment: 5000,
+      maxInvestment: 9999,
+    },
+    {
+      name: "Business",
+      percentage: 9,
+      duration: 5,
+      minInvestment: 3000,
+      maxInvestment: 12000,
+    },
+    {
+      name: "Golden",
+      percentage: 10,
+      duration: 78,
+      minInvestment: 10000,
+      maxInvestment: 20000,
+    },
+    {
+      name: "Premium",
+      percentage: 20,
+      duration: 48,
+      minInvestment: 20000,
+      maxInvestment: "UNLIMITED",
+    },
+  ];
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage pricingPlan={pricingPlan} />} />
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/term-of-use" element={<TermOfUse />} />
@@ -25,8 +70,14 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Navigate to="account" />} />
           <Route path="account" element={<Account />} />
-          <Route path="make-deposit" element={<MakeDeposit />} />
-          <Route path="your-deposits" element={<Deposits />} />
+          <Route
+            path="make-deposit"
+            element={<MakeDeposit pricingPlan={pricingPlan} />}
+          />
+          <Route
+            path="your-deposits"
+            element={<Deposits pricingPlan={pricingPlan} />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-function Deposit() {
+function Deposit({ plan }) {
   return (
     <div className="bg-[#00150F] p-4 rounded-lg shadow-lg">
       <table className="min-w-full border-collapse">
@@ -11,14 +11,19 @@ function Deposit() {
         </thead>
         <tbody className="text-white font-sub">
           <tr className="bg-[#1B2D29]">
-            <td className="p-4 font-bold uppercase">Starters Plan</td>
+            <td className="p-4 font-bold uppercase">{plan.name} Plan</td>
             <td className="p-4"></td>
             <td className="p-4"></td>
           </tr>
           <tr className="bg-[#1B2D29]">
             <td className="p-4">Plan 1</td>
-            <td className="p-4">$100.00 - $699.00</td>
-            <td className="p-4">5.00</td>
+            <td className="p-4">
+              ${plan.minInvestment}.00 -{" "}
+              {plan.maxInvestment === "UNLIMITED"
+                ? "UNLIMITED"
+                : `${plan.maxInvestment}.00`}
+            </td>
+            <td className="p-4">{plan.percentage}.00</td>
           </tr>
           <tr className="bg-[#1B2D29]">
             <td className="p-4 text-center" colSpan="3">

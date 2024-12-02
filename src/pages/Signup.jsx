@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 function Signup() {
   // Form State
@@ -44,32 +44,32 @@ function Signup() {
       alert("Passwords do not match!");
       return;
     }
+  }
+  //   try {
+  //     const response = await axios.post("http://127.0.0.1:8000/api/signup/", {
+  //       full_name: formData.fullName,
+  //       username: formData.username,
+  //       email: formData.email,
+  //       password: formData.password,
+  //       bitcoin: formData.bitcoin,
+  //       ethereum: formData.ethereum,
+  //       tron: formData.tron,
+  //       usdt_trc20: formData.usdtTrc20,
+  //       usdt_erc20: formData.usdtErc20,
+  //       bnb: formData.bnb,
+  //       dogecoin: formData.dogecoin,
+  //       shiba_inu: formData.shibaInu,
+  //       litecoin: formData.litecoin,
+  //     });
 
-    try {
-      const response = await axios.post("http://127.0.0.1:8000/api/signup/", {
-        full_name: formData.fullName,
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-        bitcoin: formData.bitcoin,
-        ethereum: formData.ethereum,
-        tron: formData.tron,
-        usdt_trc20: formData.usdtTrc20,
-        usdt_erc20: formData.usdtErc20,
-        bnb: formData.bnb,
-        dogecoin: formData.dogecoin,
-        shiba_inu: formData.shibaInu,
-        litecoin: formData.litecoin,
-      });
-
-      if (response.status === 201) {
-        alert("Signup successful! Please check your email for verification.");
-      }
-    } catch (error) {
-      console.error("Signup Error:", error.response?.data || error.message);
-      alert("Error during signup. Please try again.");
-    }
-  };
+  //     if (response.status === 201) {
+  //       alert("Signup successful! Please check your email for verification.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Signup Error:", error.response?.data || error.message);
+  //     alert("Error during signup. Please try again.");
+  //   }
+  // };
 
   return (
     <section className="bg-[#081C17] pb-20">
