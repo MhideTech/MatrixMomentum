@@ -18,4 +18,18 @@ body {
   overflow-x: hidden;
 }
 
+.wallet::-webkit-scrollbar {
+  height: 3px;
+}
 
+.wallet::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.wallet::-webkit-scrollbar-thumb {
+  background: #1B2D29;
+}
+
+.wallet::-webkit-scrollbar-thumb:hover {
+  background: #172824;
+}

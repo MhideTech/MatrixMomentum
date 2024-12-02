@@ -10,6 +10,9 @@ import Dashboard from "./pages/Dashboard";
 import Account from "./pages/Account";
 import MakeDeposit from "./pages/MakeDeposit";
 import Deposits from "./pages/Deposits";
+import EarningHistory from "./pages/EarningHistory";
+import Withdraw from "./pages/Withdraw";
+import Referrals from "./pages/Referrals";
 
 function App() {
   const pricingPlan = [
@@ -78,6 +81,9 @@ function App() {
             path="your-deposits"
             element={<Deposits pricingPlan={pricingPlan} />}
           />
+          <Route path="earning-history" element={<EarningHistory />} />
+          <Route path="withdraw" element={<Withdraw />} />
+          <Route path="referrals" element={<Referrals />} />
         </Route>
       </Routes>
     </BrowserRouter>
