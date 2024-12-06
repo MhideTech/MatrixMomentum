@@ -34,17 +34,17 @@ function Sidebar() {
             Your Referrals
           </li>
         </Link>
-        <Link to="/dashboard/make-deposit" className="">
+        <Link to="/dashboard/referral-link" className="">
           <li className="py-3 px-5 border-b border-b-[#1B2D29] hover:bg-[#1B2D29] transition-all duration-500">
             Referral Links
           </li>
         </Link>
-        <Link to="/dashboard/make-deposit" className="">
+        <Link to="/dashboard/edit-account" className="">
           <li className="py-3 px-5 border-b border-b-[#1B2D29] hover:bg-[#1B2D29] transition-all duration-500">
             Edit Account
           </li>
         </Link>
-        <Link to="/dashboard/make-deposit" className="">
+        <Link to="/dashboard/security" className="">
           <li className="py-3 px-5 border-b border-b-[#1B2D29] hover:bg-[#1B2D29] transition-all duration-500">
             Security
           </li>
