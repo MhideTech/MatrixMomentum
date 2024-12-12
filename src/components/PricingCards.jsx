@@ -4,7 +4,7 @@ const PricingCards = ({ pricingPlan }) => {
       {pricingPlan.map((plan, index) => (
         <div
           key={index}
-          className="w-72 p-6 bg-[#04CB94] text-black rounded-xl shadow-lg"
+          className=" p-6 bg-[#04CB94] text-black rounded-xl shadow-lg"
         >
           <div className="flex justify-center items-center mb-4">
             <div className="bg-[#1B2D29] text-white text-sm px-4 py-1 rounded-full uppercase font-semibold">

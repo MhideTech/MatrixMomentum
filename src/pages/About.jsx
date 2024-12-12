@@ -15,7 +15,7 @@ function About() {
           </p>
         </div>
       </section>
-      <section className="grid md:grid-cols-2 w-9/12 mx-auto text-white font-sub gap-8 text-justify my-20">
+      <section className="grid md:grid-cols-2 w-11/12 md:w-9/12 mx-auto text-white font-sub gap-8 text-justify my-20">
         <div className="">
           <h2 className="text-white font-main text-3xl">Welcome to</h2>
           <h1 className="text-white font-main text-4xl font-bold mb-10">
@@ -34,7 +34,7 @@ function About() {
             software. <br />
             <br /> Due to their long investment horizon and attractive
             risk/return profile, our alternative investments are an ideal match
-            for the requirements of Voxledger given our long-term liabilitie.{" "}
+            for the requirements of Voxledger given our long-term liabilities.{" "}
             <br />
             <br /> Investment management is an integral part of the insurance
             business, as the premiums of Voxledger clients are invested to meet
@@ -65,6 +65,10 @@ function About() {
           and progress of implementation. Our commitment covers all assets we
           invest in.
         </p>
+      </section>
+      <section className="text-white">
+        <h1 className="text-3xl text-center">OUR TEAMS</h1>
+        <div className="flex w-3/6 mx-auto bg-red-100 p-2 mt-3"></div>
       </section>
       <Footer />
     </div>

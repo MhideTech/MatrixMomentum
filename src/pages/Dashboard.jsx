@@ -6,9 +6,9 @@ function Dashboard() {
   return (
     <>
       <Navbar />
-      <section className="w-9/12 mx-auto grid md:grid-cols-3 gap-x-10 mt-20">
+      <section className="md:w-9/12 mx-auto grid md:grid-cols-3 gap-x-10 mt-20">
         <Sidebar />
-        <section className="col-span-2 bg-[#1B2D29] p-10">
+        <section className="md:col-span-2 bg-[#1B2D29] p-2 py-8 md:p-10 mt-10 md:mt-0">
           <Outlet />
         </section>
       </section>

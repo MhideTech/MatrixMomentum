@@ -117,7 +117,7 @@ function FAQ() {
         <h1 className="text-white text-4xl font-main font-semibold text-center">
           Most Common FAQ
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-9/12 gap-5 mx-auto auto-rows-auto mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-11/12 md:w-9/12 gap-5 mx-auto auto-rows-auto mt-20">
           {faq.map((question, index) => (
             <div
               className={`p-4 border rounded-lg transition-all duration-1000 text-white font-sub ${

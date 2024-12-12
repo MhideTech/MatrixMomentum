@@ -49,7 +49,7 @@ function Sidebar() {
             Security
           </li>
         </Link>
-        <Link to="/dashboard/make-deposit" className="">
+        <Link to="/" className="">
           <li className="py-3 px-5 border-b border-b-[#1B2D29] hover:bg-[#1B2D29] transition-all duration-500">
             Logout
           </li>

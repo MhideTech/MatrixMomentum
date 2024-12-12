@@ -6,7 +6,7 @@ function Contact() {
     <>
       <Navbar />
       <section className="h-60 bg-[url('src/assets/images/about-img.png')] bg-right bg-no-repeat flex flex-col justify-center font-bold">
-        <div className="w-9/12 mx-auto">
+        <div className="md:w-9/12 mx-auto">
           <h1 className="font-main text-6xl text-white">Contact Us</h1>
           <p className="text-white font-sub text-lg">
             <Link to="/">Home</Link> /{" "}
@@ -15,7 +15,7 @@ function Contact() {
         </div>
       </section>
 
-      <main className="w-9/12 mx-auto flex flex-wrap mt-20">
+      <main className="w-11/12 md:w-9/12 mx-auto flex flex-wrap mt-20">
         <div className="w-6/6 lg:w-2/6">
           <h1 className="font-main text-3xl text-white font-bold">
             Let&#39;s Get In Touch
@@ -65,7 +65,7 @@ function Contact() {
             </div>
           </div>
         </div>
-        <form action="" className="w-6/6 lg:w-3/6">
+        <form action="" className="w-full lg:w-3/6 mt-10 md:mt-0">
           <div className="mb-3">
             <label
               className="block text-white font-bold font-main text-xl"
