@@ -58,7 +58,7 @@ function About() {
             <source src="src/assets/videos/service.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <p>
+          <p className="mb-8">
             ACP as Voxledger captive investment manager for alternative assets
             strives to invest sustainably across our three asset classes. In
             order to keep up with our ambition, we incorporate Environmental,
@@ -78,6 +78,12 @@ function About() {
             activities and progress of implementation. Our commitment covers all
             assets we invest in.
           </p>
+          <a
+            href="src/assets/docs/MM.pdf"
+            className="text-black text-xl bg-[#04CB94] px-4 py-2 rounded-lg"
+          >
+            MatrixMomentum Documentation
+          </a>
         </div>
       </section>
       <section className="text-white">

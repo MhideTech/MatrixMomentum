@@ -23,7 +23,7 @@ const ChatBot = () => {
   return (
     <>
       <button
-        className="p-5 text-3xl bg-blue-300 rounded-full fixed bottom-5 right-5"
+        className="p-5 text-3xl bg-[#04CB94] rounded-full fixed bottom-5 right-5"
         onClick={() => setShowBot(true)}
       >
         <LuMessagesSquare />
