@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Chatbot from "../components/Chatbot";
 
 function About() {
   return (
@@ -45,32 +46,75 @@ function About() {
             economies, and is therefore an integral part of the global economy.
           </p>
         </div>
-        <p>
-          ACP as Voxledger captive investment manager for alternative assets
-          strives to invest sustainably across our three asset classes. In order
-          to keep up with our ambition, we incorporate Environmental, Social and
-          Governance (ESG) factors into our investment processes, for example
-          through our exclusion policy, research, corporate and country
-          analysis, monitoring and risk management. We firmly believe that
-          considering ESG factors in investment management is not a short-term
-          trend, but will change the business. <br />
-          <br /> ACP is committed to the United Nations Principles for
-          Responsible Investment (UN PRI). Our parent company, Voxledger
-          Investors, is a signatory to the UN PRI, and so in addition to
-          integrating ESG principles in our investment process, we also
-          incorporate these into our ownership policies and practices and aim
-          for appropriate disclosure on ESG issues by the entities in which we
-          invest. Moreover, we strive to enhance the implementation
-          effectiveness of the principles and regularly report on our activities
-          and progress of implementation. Our commitment covers all assets we
-          invest in.
-        </p>
+        <div>
+          <video
+            className="w-full h-96"
+            controls
+            preload="auto"
+            loop
+            autoPlay={true}
+            muted
+          >
+            <source src="src/assets/videos/service.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p>
+            ACP as Voxledger captive investment manager for alternative assets
+            strives to invest sustainably across our three asset classes. In
+            order to keep up with our ambition, we incorporate Environmental,
+            Social and Governance (ESG) factors into our investment processes,
+            for example through our exclusion policy, research, corporate and
+            country analysis, monitoring and risk management. We firmly believe
+            that considering ESG factors in investment management is not a
+            short-term trend, but will change the business. <br />
+            <br /> ACP is committed to the United Nations Principles for
+            Responsible Investment (UN PRI). Our parent company, Voxledger
+            Investors, is a signatory to the UN PRI, and so in addition to
+            integrating ESG principles in our investment process, we also
+            incorporate these into our ownership policies and practices and aim
+            for appropriate disclosure on ESG issues by the entities in which we
+            invest. Moreover, we strive to enhance the implementation
+            effectiveness of the principles and regularly report on our
+            activities and progress of implementation. Our commitment covers all
+            assets we invest in.
+          </p>
+        </div>
       </section>
       <section className="text-white">
-        <h1 className="text-3xl text-center">OUR TEAMS</h1>
-        <div className="flex w-3/6 mx-auto bg-red-100 p-2 mt-3"></div>
+        <h1 className="text-3xl text-center mb-5">OUR TEAMS</h1>
+        <div className="grid md:grid-cols-2 lg:w-3/6 mx-auto bg-[#1B2D29] p-2 mt-3">
+          <div className="p-5">
+            <div className="h-72 bg-blue-100 rounded-xl">
+              <img
+                src="src/assets/images/team-1.jpg"
+                alt=""
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <hgroup className="text-center mt-5">
+              <h1 className="text-xl font-bold">
+                Mrs. Griffin Katherine Flair
+              </h1>
+              <p>CEO</p>
+            </hgroup>
+          </div>
+          <div className="p-5">
+            <div className="h-72 w-full bg-blue-100 rounded-xl">
+              <img
+                src="src/assets/images/team-2.jpg"
+                alt=""
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <hgroup className="text-center mt-5">
+              <h1 className="text-xl font-bold">Laura Katherine</h1>
+              <p>CEO</p>
+            </hgroup>
+          </div>
+        </div>
       </section>
       <Footer />
+      <Chatbot />
     </div>
   );
 }

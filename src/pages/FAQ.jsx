@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(false);
@@ -126,11 +127,11 @@ function FAQ() {
               key={question.question}
             >
               <div
-                className="flex justify-between items-center"
+                className="flex justify-between items-center gap-3"
                 onClick={() => handleClick(index)}
               >
                 <p className="font-bold text-lg">{question.question}</p>
-                <p>{activeIndex === index ? "➖" : "➕"}</p>
+                {activeIndex === index ? <FaMinus /> : <FaPlus />}
               </div>
               <div
                 className={`transition-all duration-1000 mt-5 ${

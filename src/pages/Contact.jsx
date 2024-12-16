@@ -1,5 +1,8 @@
 import { BrowserRouter, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { BsTelephone } from "react-icons/bs";
+import { GoMail } from "react-icons/go";
+import { IoLocationOutline } from "react-icons/io5";
 
 function Contact() {
   return (
@@ -37,9 +40,20 @@ function Contact() {
               🤲
             </div>
           </div>
+          <div className="my-7 flex items-center gap-5 pe-5">
+            <div className="w-14 h-14 text-xl rounded-full bg-[#002A1E] text-white flex justify-center items-center">
+              <IoLocationOutline />
+            </div>
+            <div className="text-[#FFFFFF99] font-bold font-sub">
+              <p>
+                903/50 Clarence St, <br />
+                Sydney NSW 2000, Australia
+              </p>
+            </div>
+          </div>
           <div className="my-7 flex items-center gap-5">
-            <div className="w-14 h-14 text-xl rounded-full bg-[#002A1E] flex justify-center items-center">
-              😂
+            <div className="w-14 h-14 text-xl rounded-full bg-[#002A1E] text-white flex justify-center items-center">
+              <BsTelephone />
             </div>
             <div className="text-[#FFFFFF99] font-bold font-sub">
               <p>+234843744594848</p>
@@ -47,21 +61,12 @@ function Contact() {
             </div>
           </div>
           <div className="my-7 flex items-center gap-5">
-            <div className="w-14 h-14 text-xl rounded-full bg-[#002A1E] flex justify-center items-center">
-              😂
+            <div className="w-14 h-14 text-xl rounded-full bg-[#002A1E] text-white flex justify-center items-center">
+              <GoMail />
             </div>
             <div className="text-[#FFFFFF99] font-bold font-sub">
               <p>mail@gmail.com</p>
               <p>mail@yahoo.com</p>
-            </div>
-          </div>
-          <div className="my-7 flex items-center gap-5">
-            <div className="w-14 h-14 text-xl rounded-full bg-[#002A1E] flex justify-center items-center">
-              😂
-            </div>
-            <div className="text-[#FFFFFF99] font-bold font-sub">
-              <p>+234843744594848</p>
-              <p>+234843744594848</p>
             </div>
           </div>
         </div>

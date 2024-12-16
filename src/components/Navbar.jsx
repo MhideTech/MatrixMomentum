@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { IoCloseSharp } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -10,11 +12,16 @@ function Navbar() {
         isOpen ? "block" : "flex"
       } justify-between items-center bg-[#0E352A] sticky top-0 w-full py-5 px-5 md:px-10 z-50 transition-all ease-linear duration-500`}
     >
-      <div className="flex justify-between w-full md:w-fit">
+      <div className="flex justify-between w-full md:w-fit items-center">
         <h1 className="text-3xl font-main text-white">
           Matrix<span className="">Momentum</span>
         </h1>
-        <p className="block md:hidden" onClick={() => setIsOpen((open) => !open)}>😂</p>
+        <p
+          className="block md:hidden text-white text-3xl"
+          onClick={() => setIsOpen((open) => !open)}
+        >
+          {!isOpen ? <RxHamburgerMenu /> : <IoCloseSharp />}
+        </p>
       </div>
       <ul
         className={`${

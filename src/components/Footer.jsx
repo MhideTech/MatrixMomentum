@@ -1,3 +1,7 @@
+import { BsTelephone } from "react-icons/bs";
+import { GoMail } from "react-icons/go";
+import { IoLocationOutline } from "react-icons/io5";
+import { TiMail } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -13,25 +17,9 @@ function Footer() {
               you that we will take your concern very seriously and search for a
               satisfactory solution.
             </p>
-            <div className="flex gap-5 mt-6">
-              <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-                😂
-              </div>
-              <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-                🥹
-              </div>
-              <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-                🙏
-              </div>
-              <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-                🎉
-              </div>
-              <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-                🤲
-              </div>
-            </div>
+            
           </div>
-          <div className="text-white col-start-4 col-span-1">
+          <div className="text-white md:col-start-4 md:col-span-1">
             <h1 className="font-main text-white text-xl font-semibold">
               Quick Links
             </h1>
@@ -56,15 +44,21 @@ function Footer() {
             </h1>
             <ul className="font-sub text-sm md:text-lg">
               <li className="flex items-center gap-2 my-3 text-[#ffffff99]">
-                <p>📧</p>
+                <p>
+                  <GoMail />
+                </p>
                 <p className="break-words">support@voxledger.com</p>
               </li>
               <li className="flex items-center gap-2 my-3 text-[#ffffff99]">
-                <p>☎️</p>
+                <p>
+                  <BsTelephone />
+                </p>
                 <p>+23456789090</p>
               </li>
               <li className="flex items-center gap-2 my-3 text-[#ffffff99]">
-                <p>🗺️</p>
+                <p>
+                  <IoLocationOutline />
+                </p>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
                   ex.
