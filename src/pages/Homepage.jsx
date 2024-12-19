@@ -21,18 +21,26 @@ function Homepage({pricingPlan}) {
         </div>
         <div className="md:w-1/2 flex flex-col justify-center md:h-[70vh]">
           <div className="md:w-11/12">
-            <h1 className="text-white font-main text-4xl md:text-3xl lg:text-4xl xl:text-6xl xl:leading-[4rem] lg:leading-[3rem] font-bold mb-4">
+            <h1
+              data-translate
+              className="text-white font-main text-4xl md:text-3xl lg:text-4xl xl:text-6xl xl:leading-[4rem] lg:leading-[3rem] font-bold mb-4"
+            >
               Multiply your currency with{" "}
               <span className="text-[#04CB94]">MatrixMomentum</span>
             </h1>
-            <p className="text-white leading-7 font-sub md:text-sm">
+            <p
+              data-translate
+              className="text-white leading-7 font-sub md:text-sm"
+            >
               Are you tired of your currency not going as far as it used to? Try
               MatrixMomentum and multiply your money! With their user friendly
               interface and expert market analysis, you&apos;ll be earning more
               in no time
             </p>
             <div className="flex gap-4 mt-5">
-              <Button variant="primary" to="/signup">Create Account</Button>
+              <Button variant="primary" to="/signup">
+                Create Account
+              </Button>
               <Button variant="secondary" to="/login">
                 Login
               </Button>

@@ -1,3 +1,5 @@
+import LiveTradingChart from "../components/LiveTradingChart";
+
 function Account() {
   return (
     <>
@@ -89,6 +91,9 @@ function Account() {
             </button>
           </div>
         </div>
+      </div>
+      <div className="h-[500px] mt-5">
+        <LiveTradingChart />
       </div>
     </>
   );

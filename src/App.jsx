@@ -16,6 +16,7 @@ import Referrals from "./pages/Referrals";
 import ReferralLink from "./pages/ReferralLink";
 import EditAccount from "./pages/EditAccount";
 import Security from "./pages/Security";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 
 function App() {
   const pricingPlan = [
@@ -64,35 +65,38 @@ function App() {
   ];
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage pricingPlan={pricingPlan} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/term-of-use" element={<TermOfUse />} />
-        <Route path="/contact-us" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route index element={<Navigate to="account" />} />
-          <Route path="account" element={<Account />} />
-          <Route
-            path="make-deposit"
-            element={<MakeDeposit pricingPlan={pricingPlan} />}
-          />
-          <Route
-            path="your-deposits"
-            element={<Deposits pricingPlan={pricingPlan} />}
-          />
-          <Route path="earning-history" element={<EarningHistory />} />
-          <Route path="withdraw" element={<Withdraw />} />
-          <Route path="referrals" element={<Referrals />} />
-          <Route path="referral-link" element={<ReferralLink />} />
-          <Route path="edit-account" element={<EditAccount />} />
-          <Route path="security" element={<Security />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      {/* <LanguageSwitcher /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage pricingPlan={pricingPlan} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/term-of-use" element={<TermOfUse />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Navigate to="account" />} />
+            <Route path="account" element={<Account />} />
+            <Route
+              path="make-deposit"
+              element={<MakeDeposit pricingPlan={pricingPlan} />}
+            />
+            <Route
+              path="your-deposits"
+              element={<Deposits pricingPlan={pricingPlan} />}
+            />
+            <Route path="earning-history" element={<EarningHistory />} />
+            <Route path="withdraw" element={<Withdraw />} />
+            <Route path="referrals" element={<Referrals />} />
+            <Route path="referral-link" element={<ReferralLink />} />
+            <Route path="edit-account" element={<EditAccount />} />
+            <Route path="security" element={<Security />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
