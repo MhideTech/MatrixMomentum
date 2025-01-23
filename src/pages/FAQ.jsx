@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import Footer from "../components/Footer";
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(false);
@@ -144,6 +145,7 @@ function FAQ() {
           ))}
         </div>
       </section>
+      <Footer />
     </>
   );
 }

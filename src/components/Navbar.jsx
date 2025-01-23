@@ -37,9 +37,9 @@ function Navbar() {
         <li className={`${isOpen ? "my-7 text-center text-xl" : ""}`}>
           <NavLink to="/faq">FAQ</NavLink>
         </li>
-        <li className={`${isOpen ? "my-7 text-center text-xl" : ""}`}>
+        {/* <li className={`${isOpen ? "my-7 text-center text-xl" : ""}`}>
           <NavLink to="/term-of-use">Term of Use</NavLink>
-        </li>
+        </li> */}
         <li className={`${isOpen ? "my-7 text-center text-xl" : ""}`}>
           <NavLink to="/contact-us">Contact</NavLink>
         </li>

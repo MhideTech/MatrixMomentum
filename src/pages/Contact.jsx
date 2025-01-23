@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { BsTelephone } from "react-icons/bs";
 import { GoMail } from "react-icons/go";
 import { IoLocationOutline } from "react-icons/io5";
+import Footer from "../components/Footer";
 
 function Contact() {
   return (
@@ -23,23 +24,6 @@ function Contact() {
           <h1 className="font-main text-3xl text-white font-bold">
             Let&#39;s Get In Touch
           </h1>
-          <div className="flex gap-5 mt-6">
-            <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-              😂
-            </div>
-            <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-              🥹
-            </div>
-            <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-              🙏
-            </div>
-            <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-              🎉
-            </div>
-            <div className="w-10 h-10 text-xl rounded-full border-2 border-[hsla(0,0%,100%,.1)] flex justify-center items-center">
-              🤲
-            </div>
-          </div>
           <div className="my-7 flex items-center gap-5 pe-5">
             <div className="w-14 h-14 text-xl rounded-full bg-[#002A1E] text-white flex justify-center items-center">
               <IoLocationOutline />
@@ -115,6 +99,19 @@ function Contact() {
           </div>
         </form>
       </main>
+
+      <div className="h-96 my-5">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.1367153568353!2d151.20260971112126!3d-33.865945673115995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae40c56fffff%3A0x3b03776fc97846ea!2sOffice%20903%2F50%20Clarence%20St%2C%20Sydney%20NSW%202000%2C%20Australia!5e1!3m2!1sen!2sng!4v1737666245369!5m2!1sen!2sng"
+          width="100%"
+          height="100%"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <Footer />
     </>
   );
 }

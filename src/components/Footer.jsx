@@ -17,7 +17,6 @@ function Footer() {
               you that we will take your concern very seriously and search for a
               satisfactory solution.
             </p>
-            
           </div>
           <div className="text-white md:col-start-4 md:col-span-1">
             <h1 className="font-main text-white text-xl font-semibold">
@@ -42,7 +41,7 @@ function Footer() {
             <h1 className="font-main text-white text-xl font-semibold">
               Contact Us
             </h1>
-            <ul className="font-sub text-sm md:text-lg">
+            <ul className="font-sub text-sm md:text-lg flex flex-col">
               <li className="flex items-center gap-2 my-3 text-[#ffffff99]">
                 <p>
                   <GoMail />
@@ -51,18 +50,9 @@ function Footer() {
               </li>
               <li className="flex items-center gap-2 my-3 text-[#ffffff99]">
                 <p>
-                  <BsTelephone />
-                </p>
-                <p>+23456789090</p>
-              </li>
-              <li className="flex items-center gap-2 my-3 text-[#ffffff99]">
-                <p>
                   <IoLocationOutline />
                 </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-                  ex.
-                </p>
+                <p>903/50 Clarence St, Sydney NSW 2000, Australia</p>
               </li>
             </ul>
           </div>

@@ -78,12 +78,29 @@ function About() {
             activities and progress of implementation. Our commitment covers all
             assets we invest in.
           </p>
-          <a
-            href="src/assets/docs/MM.pdf"
-            className="text-black text-xl bg-[#04CB94] px-4 py-2 rounded-lg"
-          >
-            MatrixMomentum Documentation
-          </a>
+          <div className="flex gap-3 flex-wrap text-center">
+            <a
+              href="src/assets/docs/MATRIX MOMENTUM-3.pdf"
+              download={true}
+              className="text-black text-base flex-auto bg-[#04CB94] px-4 py-3 rounded-lg"
+            >
+              MatrixMomentum Documentation (English)
+            </a>
+            <a
+              href="src/assets/docs/matrixmomentum spanish.pdf"
+              download={true}
+              className="text-black text-base flex-auto bg-[#04CB94] px-4 py-3 rounded-lg"
+            >
+              MatrixMomentum Documentation (Spanish)
+            </a>
+            <a
+              href="src/assets/docs/Matrixmomentum persian.pdf"
+              download={true}
+              className="text-black text-base flex-auto bg-[#04CB94] px-4 py-3 rounded-lg"
+            >
+              MatrixMomentum Documentation (Persian)
+            </a>
+          </div>
         </div>
       </section>
       <section className="text-white">
