@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { translate } from "google-translate-api-browser";
+import React, { useState } from "react";
 
 // List of supported languages
 const languages = [
@@ -21,18 +20,30 @@ const LanguageSwitcher = () => {
     textElements.forEach(async (element) => {
       const originalText =
         element.getAttribute("data-original") || element.innerText;
-      console.log(originalText);
+      console.log("Original Text: ", originalText);
+
+      // CORS Proxy and API URL (alternative CORS proxy)
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const apiUrl = `https://lingva.ml/translate?text=${encodeURIComponent(originalText)}&target_lang=${selectedLang}`;
+      const finalUrl = proxyUrl + encodeURIComponent(apiUrl); // Combining proxy and actual API URL
 
       try {
-        console.log(selectedLang);
-        const result = await translate(originalText, {
-          to: selectedLang,
-        //   corsUrl: "http://cors-anywhere.herokuapp.com/",
+        const response = await fetch(finalUrl, {
+          method: "GET",
         });
-        console.log(result.text);
-        element.innerText = result.text;
 
-        element.setAttribute("data-original", originalText);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (data.contents && data.contents.text) {
+          console.log("Translated Text: ", data.contents.text);
+          element.innerText = data.contents.text; // Update the element's text with translated text
+          element.setAttribute("data-original", originalText); // Store original text in a data attribute
+        } else {
+          throw new Error("No translation data returned");
+        }
       } catch (error) {
         console.error("Translation failed:", error);
       }

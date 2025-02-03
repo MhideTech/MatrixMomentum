@@ -1,4 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { LanguageProvider } from "./context/LanguageContext";
+import useDynamicTranslation from "./hooks/useDynamicTranslation";
+
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
@@ -21,42 +24,42 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 function App() {
   const pricingPlan = [
     {
-      name: "Beginners",
+      name: useDynamicTranslation("Beginners"),
       percentage: 5,
       duration: 20,
       minInvestment: 100,
       maxInvestment: 999,
     },
     {
-      name: "Star",
+      name: useDynamicTranslation("Star"),
       percentage: 10,
       duration: 24,
       minInvestment: 1000,
       maxInvestment: 4999,
     },
     {
-      name: "Advance",
+      name: useDynamicTranslation("Advance"),
       percentage: 12,
       duration: 24,
       minInvestment: 5000,
       maxInvestment: 9999,
     },
     {
-      name: "Business",
+      name: useDynamicTranslation("Business"),
       percentage: 9,
       duration: 5,
       minInvestment: 3000,
       maxInvestment: 12000,
     },
     {
-      name: "Golden",
+      name: useDynamicTranslation("Golden"),
       percentage: 10,
       duration: 78,
       minInvestment: 10000,
       maxInvestment: 20000,
     },
     {
-      name: "Premium",
+      name: useDynamicTranslation("Premium"),
       percentage: 20,
       duration: 48,
       minInvestment: 20000,
@@ -65,9 +68,9 @@ function App() {
   ];
 
   return (
-    <>
-      {/* <LanguageSwitcher /> */}
+    <LanguageProvider>
       <BrowserRouter>
+        <LanguageSwitcher />
         <Routes>
           <Route path="/" element={<Homepage pricingPlan={pricingPlan} />} />
           <Route path="/about" element={<About />} />
@@ -96,7 +99,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </LanguageProvider>
   );
 }
 

@@ -46,7 +46,7 @@ function Footer() {
                 <p>
                   <GoMail />
                 </p>
-                <p className="break-words">support@voxledger.com</p>
+                <p className="break-words">support@matrixmomentum.com</p>
               </li>
               <li className="flex items-center gap-2 my-3 text-[#ffffff99]">
                 <p>

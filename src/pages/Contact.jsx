@@ -40,8 +40,8 @@ function Contact() {
               <BsTelephone />
             </div>
             <div className="text-[#FFFFFF99] font-bold font-sub">
-              <p>+234843744594848</p>
-              <p>+234843744594848</p>
+              <p></p>
+              <p></p>
             </div>
           </div>
           <div className="my-7 flex items-center gap-5">
@@ -49,8 +49,7 @@ function Contact() {
               <GoMail />
             </div>
             <div className="text-[#FFFFFF99] font-bold font-sub">
-              <p>mail@gmail.com</p>
-              <p>mail@yahoo.com</p>
+              <p>support@matrixmomentum.com</p>
             </div>
           </div>
         </div>
