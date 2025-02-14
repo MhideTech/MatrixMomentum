@@ -1,4 +1,20 @@
+import axios from "axios";
 import { Link } from "react-router-dom";
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+
+  console.log(Object.fromEntries(formData))
+
+  try {
+    const response = await axios.post('account/login/', formData)
+    console.log(response.data);
+  } catch (err) {
+    alert(err.message);
+  }
+}
 
 function Login() {
   return (
@@ -18,7 +34,7 @@ function Login() {
           </p>
         </hgroup>
 
-        <form action="" className="my-10">
+        <form  onSubmit={handleSubmit} className="my-10">
           <div className="my-8">
             <label
               htmlFor="email"
@@ -28,7 +44,8 @@ function Login() {
             </label>
             <input
               type="email"
-              id="name"
+              id="email"
+              name="email"
               className="block font-sub px-5 py-4 bg-[#1B2D29] w-full border border-[#1B2D29] text-white rounded-md focus:border-[#00D094] focus:outline-none"
               placeholder="Enter your email"
             />
@@ -43,6 +60,7 @@ function Login() {
             <input
               type="password"
               id="password"
+              name="password"
               className="block font-sub px-5 py-4 bg-[#1B2D29] w-full border border-[#1B2D29] text-white rounded-md focus:border-[#00D094] focus:outline-none"
               placeholder="Password"
             />

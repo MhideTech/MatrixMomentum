@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // import axios from "axios";
@@ -5,7 +6,7 @@ import { Link } from "react-router-dom";
 function Signup() {
   // Form State
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     username: "",
     email: "",
     confirmEmail: "",
@@ -44,6 +45,13 @@ function Signup() {
       alert("Passwords do not match!");
       return;
     }
+    try {
+      const response = await axios.post('account/register/', formData)
+      console.log(response.data);
+    } catch (err) {
+      alert(err.message);
+    }
+
   }
   //   try {
   //     const response = await axios.post("http://127.0.0.1:8000/api/signup/", {
@@ -100,7 +108,7 @@ function Signup() {
               <input
                 type="text"
                 id="fullName"
-                name="fullName"
+                name="name"
                 value={formData.fullName}
                 onChange={handleChange}
                 className="block font-sub px-5 py-4 bg-[#1B2D29] w-full text-white rounded-md focus:border-[#00D094]"
