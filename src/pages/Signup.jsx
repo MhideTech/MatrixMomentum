@@ -1,26 +1,30 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-// import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup() {
+  const navigate = useNavigate();
   // Form State
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     username: "",
     email: "",
     confirmEmail: "",
     password: "",
     confirmPassword: "",
-    bitcoin: "",
-    ethereum: "",
-    tron: "",
-    usdtTrc20: "",
-    usdtErc20: "",
-    bnb: "",
-    dogecoin: "",
-    shibaInu: "",
-    litecoin: "",
+    bitcoin_wallet: "",
+    ethereum_wallet: "",
+    tron_wallet: "",
+    tether_usdt_trc20_wallet: "",
+    usdt_erc20_wallet: "",
+    bnb_wallet: "",
+    dogecoin_wallet: "",
+    shiba_wallet: "",
   });
+
+  // Loading and Error States
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // Handle Input Changes
   const handleChange = (e) => {
@@ -29,47 +33,91 @@ function Signup() {
       ...prev,
       [name]: value,
     }));
+    // Clear error when user starts typing
+    setError(null);
+  };
+
+  // Form Validation
+  const validateForm = () => {
+    if (formData.email !== formData.confirmEmail) {
+      setError("Emails do not match!");
+      return false;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match!");
+      return false;
+    }
+
+    if (formData.password.length < 8) {
+      setError("Password must be at least 8 characters long!");
+      return false;
+    }
+
+    return true;
   };
 
   // Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) return;
 
-    if (formData.email !== formData.confirmEmail) {
-      alert("Emails do not match!");
-      return;
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Prepare API data
+      const apiData = {
+        name: formData.name,
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        bitcoin_wallet: formData.bitcoin_wallet || null,
+        ethereum_wallet: formData.ethereum_wallet || null,
+        tron_wallet: formData.tron_wallet || null,
+        tether_usdt_trc20_wallet: formData.tether_usdt_trc20_wallet || null,
+        usdt_erc20_wallet: formData.usdt_erc20_wallet || null,
+        bnb_wallet: formData.bnb_wallet || null,
+        dogecoin_wallet: formData.dogecoin_wallet || null,
+        shiba_wallet: formData.shiba_wallet || null,
+      };
+
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/register/",
+        apiData
+      );
+
+      if (response.data.user_id) {
+        // Store user_id for verification
+        localStorage.setItem('temp_user_id', response.data.user_id);
+        
+        // Redirect to verification page
+        navigate('/verify-email');
+      }
+
+    } catch (error) {
+      console.error("Signup Error:", error);
+      setError(
+        error.response?.data?.message || 
+        "Registration failed. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
     }
+  };
 
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-  }
-  //   try {
-  //     const response = await axios.post("http://127.0.0.1:8000/api/signup/", {
-  //       full_name: formData.fullName,
-  //       username: formData.username,
-  //       email: formData.email,
-  //       password: formData.password,
-  //       bitcoin: formData.bitcoin,
-  //       ethereum: formData.ethereum,
-  //       tron: formData.tron,
-  //       usdt_trc20: formData.usdtTrc20,
-  //       usdt_erc20: formData.usdtErc20,
-  //       bnb: formData.bnb,
-  //       dogecoin: formData.dogecoin,
-  //       shiba_inu: formData.shibaInu,
-  //       litecoin: formData.litecoin,
-  //     });
-
-  //     if (response.status === 201) {
-  //       alert("Signup successful! Please check your email for verification.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Signup Error:", error.response?.data || error.message);
-  //     alert("Error during signup. Please try again.");
-  //   }
-  // };
+  // Wallet input fields configuration
+  const walletFields = [
+    { name: "bitcoin_wallet", label: "Bitcoin Address" },
+    { name: "ethereum_wallet", label: "Ethereum Address" },
+    { name: "tron_wallet", label: "Tron Address" },
+    { name: "tether_usdt_trc20_wallet", label: "Tether USDT (TRC20)" },
+    { name: "usdt_erc20_wallet", label: "Tether USDT (ERC20)" },
+    { name: "bnb_wallet", label: "BNB Address" },
+    { name: "dogecoin_wallet", label: "Dogecoin Address" },
+    { name: "shiba_wallet", label: "Shiba Inu Address" },
+  ];
 
   return (
     <section className="bg-[#081C17] pb-20">
@@ -88,21 +136,27 @@ function Signup() {
             Hey there! Ready to join the party? We just need a few details from
             you to get started. Let&apos;s do this!
           </p>
+          {error && (
+            <div className="mt-4 p-3 bg-red-500 text-white rounded">
+              {error}
+            </div>
+          )}
         </hgroup>
 
         <form onSubmit={handleSubmit} className="my-10">
           {/* User Info */}
           <div className="grid md:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="fullName" className="block font-main font-semibold text-xl text-white">
+              <label htmlFor="name" className="block font-main font-semibold text-xl text-white">
                 Full Name
               </label>
               <input
                 type="text"
-                id="fullName"
-                name="fullName"
-                value={formData.fullName}
+                id="name"
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
+                required
                 className="block font-sub px-5 py-4 bg-[#1B2D29] w-full text-white rounded-md focus:border-[#00D094]"
                 placeholder="Enter your full name"
               />
@@ -117,6 +171,7 @@ function Signup() {
                 name="username"
                 value={formData.username}
                 onChange={handleChange}
+                required
                 className="block font-sub px-5 py-4 bg-[#1B2D29] w-full text-white rounded-md focus:border-[#00D094]"
                 placeholder="Enter your username"
               />
@@ -135,13 +190,14 @@ function Signup() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                required
                 className="block font-sub px-5 py-4 bg-[#1B2D29] w-full text-white rounded-md focus:border-[#00D094]"
                 placeholder="Enter your email address"
               />
             </div>
             <div>
               <label htmlFor="confirmEmail" className="block font-main font-semibold text-xl text-white">
-                Retype Email Address
+                Confirm Email Address
               </label>
               <input
                 type="email"
@@ -149,8 +205,9 @@ function Signup() {
                 name="confirmEmail"
                 value={formData.confirmEmail}
                 onChange={handleChange}
+                required
                 className="block font-sub px-5 py-4 bg-[#1B2D29] w-full text-white rounded-md focus:border-[#00D094]"
-                placeholder="Retype your email address"
+                placeholder="Confirm your email address"
               />
             </div>
           </div>
@@ -167,13 +224,15 @@ function Signup() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                required
+                minLength={8}
                 className="block font-sub px-5 py-4 bg-[#1B2D29] w-full text-white rounded-md focus:border-[#00D094]"
                 placeholder="Enter your password"
               />
             </div>
             <div>
               <label htmlFor="confirmPassword" className="block font-main font-semibold text-xl text-white">
-                Retype Password
+                Confirm Password
               </label>
               <input
                 type="password"
@@ -181,24 +240,15 @@ function Signup() {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
+                required
                 className="block font-sub px-5 py-4 bg-[#1B2D29] w-full text-white rounded-md focus:border-[#00D094]"
-                placeholder="Retype your password"
+                placeholder="Confirm your password"
               />
             </div>
           </div>
 
           {/* Wallet Addresses */}
-          {[
-            { name: "bitcoin", label: "Bitcoin Address" },
-            { name: "ethereum", label: "Ethereum Address" },
-            { name: "tron", label: "Tron Address" },
-            { name: "usdtTrc20", label: "Tether USDT (TRC20)" },
-            { name: "usdtErc20", label: "Tether USDT (ERC20)" },
-            { name: "bnb", label: "BNB Address" },
-            { name: "dogecoin", label: "Dogecoin Address" },
-            { name: "shibaInu", label: "Shiba Inu Address" },
-            { name: "litecoin", label: "Litecoin Address" },
-          ].map((field) => (
+          {walletFields.map((field) => (
             <div key={field.name} className="my-4">
               <label htmlFor={field.name} className="block font-main font-semibold text-xl text-white">
                 {field.label}
@@ -216,11 +266,15 @@ function Signup() {
           ))}
 
           {/* Submit Button */}
-          <input
+          <button
             type="submit"
-            value="Sign Up"
-            className="block w-full bg-[#00D094] py-3 font-main rounded-md text-lg my-7"
-          />
+            disabled={isLoading}
+            className={`block w-full ${
+              isLoading ? 'bg-gray-500' : 'bg-[#00D094]'
+            } py-3 font-main rounded-md text-lg my-7`}
+          >
+            {isLoading ? 'Creating Account...' : 'Sign Up'}
+          </button>
 
           <p className="font-sub text-center text-white">
             Already have an account?{" "}

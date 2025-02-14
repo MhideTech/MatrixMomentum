@@ -1,11 +1,59 @@
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { BsTelephone } from "react-icons/bs";
 import { GoMail } from "react-icons/go";
 import { IoLocationOutline } from "react-icons/io5";
 import Footer from "../components/Footer";
+import { useState } from "react";
+import axios from "axios";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      const response = await axios.post(
+        "https://jwt-auth-5.onrender.com/api/contact-us/",
+        formData
+      );
+      setSuccessMessage("Your message has been sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      setErrorMessage(
+        "Failed to send message. Please try again later."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -53,12 +101,9 @@ function Contact() {
             </div>
           </div>
         </div>
-        <form action="" className="w-full lg:w-3/6 mt-10 md:mt-0">
+        <form onSubmit={handleSubmit} className="w-full lg:w-3/6 mt-10 md:mt-0">
           <div className="mb-3">
-            <label
-              className="block text-white font-bold font-main text-xl"
-              htmlFor="name"
-            >
+            <label className="block text-white font-bold font-main text-xl" htmlFor="name">
               Name
             </label>
             <input
@@ -66,13 +111,13 @@ function Contact() {
               type="text"
               id="name"
               placeholder="Full Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
             />
           </div>
           <div className="my-7">
-            <label
-              className="block text-white font-bold font-main text-xl"
-              htmlFor="email"
-            >
+            <label className="block text-white font-bold font-main text-xl" htmlFor="email">
               Email
             </label>
             <input
@@ -80,28 +125,62 @@ function Contact() {
               type="email"
               id="email"
               placeholder="Email here"
+              value={formData.email}
+              onChange={handleChange}
+              required
             />
           </div>
           <div className="my-7">
-            <label
-              className="block text-white font-bold font-main text-xl"
-              htmlFor="message"
-            >
+            <label className="block text-white font-bold font-main text-xl" htmlFor="subject">
+              Subject
+            </label>
+            <input
+              className="block px-5 mt-2 text-white font-sub py-4 w-full rounded-lg bg-[#1B2D29] focus:outline-none border focus:border-[#00D094]"
+              type="text"
+              id="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="my-7">
+            <label className="block text-white font-bold font-main text-xl" htmlFor="message">
               Message
             </label>
             <textarea
               className="block px-5 mt-2 text-white font-sub py-4 w-full rounded-lg bg-[#1B2D29] focus:outline-none border focus:border-[#00D094] h-60"
-              type="text"
               id="message"
               placeholder="Enter Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
             />
           </div>
+          {loading ? (
+            <button
+              disabled
+              className="bg-[#00D094] text-white font-bold py-3 px-6 rounded-lg w-full opacity-50 cursor-not-allowed"
+            >
+              Sending...
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="bg-[#00D094] text-white font-bold py-3 px-6 rounded-lg w-full"
+            >
+              Send Message
+            </button>
+          )}
+
+          {successMessage && <p className="text-green-500 mt-3">{successMessage}</p>}
+          {errorMessage && <p className="text-red-500 mt-3">{errorMessage}</p>}
         </form>
       </main>
 
       <div className="h-96 my-5">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.1367153568353!2d151.20260971112126!3d-33.865945673115995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae40c56fffff%3A0x3b03776fc97846ea!2sOffice%20903%2F50%20Clarence%20St%2C%20Sydney%20NSW%202000%2C%20Australia!5e1!3m2!1sen!2sng!4v1737666245369!5m2!1sen!2sng"
+          src="https://www.google.com/maps/embed?pb=...your-map-url"
           width="100%"
           height="100%"
           allowFullScreen=""
