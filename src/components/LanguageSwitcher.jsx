@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // List of supported languages
 const languages = [
@@ -24,7 +24,7 @@ const LanguageSwitcher = () => {
 
       // CORS Proxy and API URL (alternative CORS proxy)
       const proxyUrl = "https://api.allorigins.win/get?url=";
-      const apiUrl = `https://lingva.ml/translate?text=${encodeURIComponent(originalText)}&target_lang=${selectedLang}`;
+      const apiUrl = `https://lingva.ml/translate?target_lang=${selectedLang}`;
       const finalUrl = proxyUrl + encodeURIComponent(apiUrl); // Combining proxy and actual API URL
 
       try {
@@ -36,10 +36,11 @@ const LanguageSwitcher = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
+
         const data = await response.json();
-        if (data.contents && data.contents.text) {
+        if (data.contents) {
           console.log("Translated Text: ", data.contents.text);
-          element.innerText = data.contents.text; // Update the element's text with translated text
+          element.innerHTML = data.contents; // Update the element's text with translated text
           element.setAttribute("data-original", originalText); // Store original text in a data attribute
         } else {
           throw new Error("No translation data returned");
