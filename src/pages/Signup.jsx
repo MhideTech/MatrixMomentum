@@ -84,13 +84,21 @@ function Signup() {
       };
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/register/",
-        apiData
+        "https://jwt-auth-5.onrender.com/api/register/",
+        apiData,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
       );
 
       if (response.data.user_id) {
         // Store user_id for verification
         localStorage.setItem('temp_user_id', response.data.user_id);
+        
+        // Show success message
+        alert("Registration successful! Please check your email for verification code.");
         
         // Redirect to verification page
         navigate('/verify-email');
@@ -98,10 +106,17 @@ function Signup() {
 
     } catch (error) {
       console.error("Signup Error:", error);
-      setError(
-        error.response?.data?.message || 
-        "Registration failed. Please try again."
-      );
+      
+      // Handle specific API error messages
+      if (error.response?.data?.error) {
+        setError(error.response.data.error);
+      } else if (error.response?.data?.username) {
+        setError(`Username error: ${error.response.data.username[0]}`);
+      } else if (error.response?.data?.email) {
+        setError(`Email error: ${error.response.data.email[0]}`);
+      } else {
+        setError("Registration failed. Please try again.");
+      }
     } finally {
       setIsLoading(false);
     }

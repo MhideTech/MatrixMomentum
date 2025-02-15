@@ -12,7 +12,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Account from "./pages/Account";
 import MakeDeposit from "./pages/MakeDeposit";
-import Deposits from "./pages/Deposits";
+import YourDeposit from "./pages/Deposit";
 import EarningHistory from "./pages/EarningHistory";
 import Withdraw from "./pages/Withdraw";
 import Referrals from "./pages/Referrals";
